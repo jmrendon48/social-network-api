@@ -1,6 +1,5 @@
 const route = require("express").Router();
 
-const router = require("../../../pizza-hunt/routes/api/pizza-routes");
 const {
   getAllUser,
   getUserById,
@@ -12,22 +11,12 @@ const {
 } = require("../../controllers/user-controller");
 
 // /api/users
-router
-  .route('/')
-  .get(getAllUser)
-  .post(createUser);
+router.route("/").get(getAllUser).post(createUser);
 
 // /api/users/:id
-router
-  .route('/:id')
-  .get(getUserById)
-  .put(updateUser)
-  .delete(deleteUser);
+router.route("/:id").get(getUserById).put(updateUser).delete(deleteUser);
 
 // /api/users/:userId/friends/:friendId
-router
-  .route('/:userId/friends/:friendId')
-  .post(addFriend)
-  .delete(deleteFriend)
+router.route("/:userId/friends/:friendId").post(addFriend).delete(deleteFriend);
 
 module.exports = router;
